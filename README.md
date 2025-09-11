@@ -1,19 +1,69 @@
-# Graphic Design Portfolio Website
+Jefrey Jurado Portfolio — Milestone 1 (HTML + CSS)
+Overview
 
-This project is my personal portfolio website to showcase my graphic design works.
+This is the first draft of my portfolio website. It’s built using HTML and CSS and follows the wireframe layout I designed.
 
-The goal of this website is to:
+The goal here was to set up the structure and basic styling for the website. Later milestones will add more interactive features with Bootstrap and JavaScript.
 
-Highlight my creativity and technical skills.
+The website includes:
 
-Present my completed projects in a professional way.
+-Hero section
+-About Me
+-Featured Projects
+-Skills & Testimonials
+-Contact
+-Footer
 
-Build an online presence for potential clients and employers.
+File Structure
+portfolio/
+│
+├─ index.html          # Main HTML page
+├─ styles/
+│   └─ style.css       # Styling for the website
+├─ images/
+│   └─ profile.png     # Profile image for the Hero section
 
-Built with:
+Sections
 
-HTML5
+Hero Section
+-Introduces me and what I do.
+-Includes headline, short tagline, buttons to "View My Work" and "Contact Me", and my profile image.
+-Layout follows the wireframe: text on the left, image on the right.
 
-CSS3
+About Me
+-A short intro paragraph about me.
+-"Download Resume" button.
+-Skill cards for Design Tools, Web Tech, and Soft Skills.
+-Matches the About Me section from the wireframe.
 
-(More tools will be added as I develop the site further)
+Featured Projects
+-Showcases 4 sample projects: Branding, Student/Case Project, Layout, Product Packaging.
+-Displayed in a responsive grid that adjusts for different screen sizes.
+-Matches the Projects section in the wireframe.
+
+Skills & Testimonials
+-Displays my main tools (Photoshop, Illustrator, Figma, etc.) as skill tags.
+-Includes client/peer testimonials.
+-Layout follows the wireframe: skills at the top, testimonials below.
+
+Contact
+-Buttons to reach me via Email, LinkedIn, GitHub, and Behance.
+-Simple, clear layout just like in the wireframe.
+
+Footer
+-Contains copyright notice.
+-Matches wireframe footer style.
+
+Styling Notes
+-Clean and simple design to match wireframe.
+-Buttons have rounded corners and two colors for primary and secondary actions.
+-Sections are spaced evenly for readability.
+-Project grid and skill tags are responsive to screen size.
+
+Next Steps
+-Add Bootstrap for a more polished layout and responsive features.
+-Include JavaScript for interactive elements (sliders, pop-ups, etc.).
+-Replace placeholder text and images with final portfolio content.
+
+Screenshot
+-(Optional: Add a screenshot of your webpage here for a quick visual reference)
