@@ -64,6 +64,3 @@ Next Steps
 -Add Bootstrap for a more polished layout and responsive features.
 -Include JavaScript for interactive elements (sliders, pop-ups, etc.).
 -Replace placeholder text and images with final portfolio content.
-
-Screenshot
--(Optional: Add a screenshot of your webpage here for a quick visual reference)
