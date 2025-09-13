@@ -183,7 +183,7 @@ section {
 }
 
 /* Projects */
-.projects .contact-links a {
+.projects {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -283,19 +283,19 @@ section {
 }
 
 /* Contact Section */
-.contact-section {
+.contact {
+  max-width: 65%;
+  min-height: 60vh;
   display: flex;
-  flex-direction: column;     /* stack heading and links */
-  justify-content: center;    /* vertical centering */
-  min-height: 70vh;           /* height to center content in viewport */
-  padding-left: 45px;         /* left alignment */
+  flex-direction: column;
+  justify-content: center;
 }
 
-.contact-section, h2 {
+.contact h2 {
   text-align: left;
   max-width: 65%;
-  margin-left: 45px;
-  font-size: 2.5rem;          /* matches other sections */
+  margin-left: 37px;
+  font-size: 2.5rem;    
   font-weight: bold;
   margin-bottom: 20px;
 }
