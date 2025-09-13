@@ -22,7 +22,7 @@ nav a {
   text-decoration: none;      /* remove underline */
   font-weight: bold;
   border-radius: 5px;         /* rounded corners */
-  background: rgba(156, 152, 152, 0.205); /* faint background */
+  background: rgba(46, 93, 180, 0.164); /* faint background */
   transition: all 0.3s ease;  /* smooth hover effect */
 }
 
@@ -33,7 +33,7 @@ nav a:hover {
 }
 
 nav a.active {
-  background: #575d64;
+  background: #1C4D8C;
   color: #fff;
 }
 
@@ -46,18 +46,19 @@ body {
   font-family: Nunito, sans-serif;
   line-height: 1.6;
   color: #ffffff;
-  background: url("../images/abstract.jpg") no-repeat center center fixed;
+  background: url("../images/blueredbackground.jpg") no-repeat center center fixed;
   background-size: cover;
   padding: 20px;
 }
 
 body.home {
-  background: url("../images/abstract.jpg") no-repeat center center fixed;
+  background: url("../images/newblueredbackground.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
 h1, h2 {
   margin-bottom: 15px;
+  max-width: 70%;
 }
 
 h2, p {
@@ -107,17 +108,12 @@ section {
   margin-top: 25px;
   margin-right: 17px;   /* space between buttons */
   padding: 5px 10px;
-  background: #1C4D8C;
+  background: #7e0101;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
   font-weight: 600;
   transition: transform 0.2s, background 0.2s, color 0.2s;
-}
-
-/* Optional: remove right margin for the last button */
-.hero-buttons .btn:last-child {
-  margin-right: 0;
 }
 
 .hero-buttons .btn:hover {
@@ -127,14 +123,23 @@ section {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+.hero-buttons .btn-secondary {
+  background: #1C4D8C;
+}
 
+.hero-image {
+  display: flex;           /* make image container flex */
+  align-items: center;     /* vertical center */
+  justify-content: center; /* horizontal center inside column */
+}
 
 .hero-image img {
-  max-width: 350px;
+  max-width: 380px;
   width: 100%;
   height: auto;
-  border-radius: 5%;
+  border-radius: 2%;
   display: block;
+  margin: 0; 
 }
 
 /* About */
@@ -183,7 +188,7 @@ section {
 .skill-card {
   flex: 1 1 180px;
   padding: 3px 3px;
-  background: #1C4D8C;
+  background: #7e0101;
   text-align: center;
   border-radius: 8px;
   color: #fff;
@@ -353,6 +358,6 @@ footer {
   font-size: 0.8em;
   color: #01bef8;
   box-sizing: border-box;
-  background-color: #4a4a4e50;
+  background-color: #3471cc21;
   backdrop-filter: blur(10px);
 }
