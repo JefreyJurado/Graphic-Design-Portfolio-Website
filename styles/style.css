@@ -5,6 +5,39 @@
   box-sizing: border-box;
 }
 
+/* Navigation Bar */
+nav {
+  background: #172940;        /* dark background */
+  padding: 15px 30px;         /* space around */
+  text-align: center;         /* center the menu */
+  position: sticky;           /* stays on top when scrolling */
+  top: 0;
+  z-index: 1000;              /* stays above other sections */
+}
+
+nav a {
+  display: inline-block;      /* line them up */
+  margin: 0 12px;             /* spacing between links */
+  padding: 8px 16px;          /* padding inside buttons */
+  color: #fff;                /* white text */
+  text-decoration: none;      /* remove underline */
+  font-weight: bold;
+  border-radius: 5px;         /* rounded corners */
+  background: rgba(160, 56, 56, 0.05); /* faint background */
+  transition: all 0.3s ease;  /* smooth hover effect */
+}
+
+nav a:hover {
+  background: #1C4D8C;        /* blue background on hover */
+  color: #BDD4F2;             /* light text on hover */
+  transform: translateY(-2px); /* little lift effect */
+}
+
+nav a.active {
+  background: #1C4D8C;
+  color: #fff;
+}
+
 /* Global */
 body {
   font-family: Nunito, sans-serif;
