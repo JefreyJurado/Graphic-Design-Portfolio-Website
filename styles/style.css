@@ -7,7 +7,7 @@
 
 /* Navigation Bar */
 nav {
-  background: #172940;        /* dark background */
+  background: #172940;      /* dark background */
   padding: 15px 30px;         /* space around */
   text-align: center;         /* center the menu */
   position: sticky;           /* stays on top when scrolling */
@@ -54,6 +54,7 @@ h1, h2 {
 
 h2, p {
   color: #fff;
+  margin-left: 10px;
 }
 
 section {
@@ -75,8 +76,8 @@ section {
 
 .hero-buttons .btn {
   display: inline-block;
-  margin: 10px 10px 0 0;
-  padding: 10px 20px;
+  margin: 25px 10px 0 0;
+  padding: 10px 30px;
   background: #1C4D8C;
   color: #fff;
   text-decoration: none;
@@ -99,7 +100,24 @@ section {
   gap: 15px;
   margin-top: 20px;
   color:#172940
+  
 }
+
+.about h2, p {
+  text-align: center;
+}
+
+/* Center only the resume button */
+.about .btn {
+  display: block;           /* make it a block element */
+  margin: 20px auto;        /* auto left/right = center */
+  padding: 5px 10px;       /* a bit more padding */
+  width: fit-content;       /* button only as wide as text */
+  border-radius: 8px;
+  color: #fff;
+  background-color: #1C4D8C;
+}
+
 
 .skill-card {
   flex: 1;
