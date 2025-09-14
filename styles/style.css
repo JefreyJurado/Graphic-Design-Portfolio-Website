@@ -7,16 +7,21 @@
 
 /* Navigation Bar */
 nav {
-  width: 100%;                 /* make sure it spans full screen */
-  background-color: #3471cc21;  /* same as footer */
+  width: 100%;
+  background-color: #3471cc21;
   backdrop-filter: blur(10px);
   padding: 1rem 2rem;
-  text-align: left;
+  
+  /* Flex centering */
+  display: flex;
+  justify-content: center; /* centers links horizontally */
+  align-items: center;     /* vertically centers links inside nav */
+  
   position: sticky;
   top: 0;
-  z-index: 1000;               /* stay on top */
-  box-sizing: border-box;      /* padding included in width */
-  margin: 0;                   /* remove default margins */
+  z-index: 1000;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 nav a {
@@ -27,7 +32,7 @@ nav a {
   text-decoration: none;      /* remove underline */
   font-weight: bold;
   border-radius: 5px;         /* keep px for sharpness */
-  background: rgba(46, 93, 180, 0.164); /* faint background */
+  background: rgba(46, 93, 180, 0.247); /* faint background */
   transition: all 0.3s ease;  /* smooth hover effect */
 }
 
@@ -50,20 +55,37 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* ensures full screen height */
+  min-height: 100vh;
   font-family: Nunito, sans-serif;
   line-height: 1.6;
   color: #ffffff;
-  background: url("../images/blueredbackground.jpg") no-repeat center center fixed;
-  background-size: cover;
   margin: 0;
   padding: 0;
+
+  /* Background default for desktop */
+  background-image: url("../images/blueredbackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;  /* desktop parallax effect */
 }
 
-/* Home background */
+/* Optional homepage background */
 body.home {
-  background: url("../images/newblueredbackground.jpg") no-repeat center center fixed;
+  background-image: url("../images/newblueredbackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
+  background-attachment: fixed;  /* desktop parallax effect */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  body,
+  body.home {
+    background-attachment: scroll;  /* fix mobile rendering */
+    background-size: cover;         /* still fills viewport */
+  }
 }
 
 h1, h2 {
@@ -155,53 +177,50 @@ section {
 .about {
   display: flex;
   flex-direction: column;
-  justify-content: center;   
+  justify-content: center;   /* vertical centering */
+  align-items: center;       /* horizontal centering */
   min-height: 70vh;   
-}
-
-.about .skills {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.25rem;
-  color: #172940;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin-left: 2.3rem;
+  text-align: center;        /* center text inside */
+  padding: 0 2rem;           /* horizontal padding */
+  width: 100%;               /* take full width */
 }
 
 .about h2 {
-  text-align: left;
-  margin-left: 2.3rem;
-  max-width: 65%;
   font-size: 2.5rem;
-  font-weight: bold;
+  margin-left: 0;
+  width: 100%;               
+  max-width: 900px;          
 }
 
 .about p {
-  text-align: left;
-  margin-left: 2.3rem;
-  max-width: 65%;
+  margin-left: 0;
+  width: 100%;               
+  max-width: 900px;         
 }
 
+/* Highlight specific words */
+.highlight {
+  color: #50c2f7;
+  font-weight: bold;
+}
+
+/* Center the button */
 .about .btn {
-  display: block;
-  margin: 1.25rem 0 1.25rem 2.3rem;
+  display: inline-block;
+  margin: 1.25rem 0;
   padding: 0.4rem 0.6rem;
-  width: fit-content;
   border-radius: 8px;
   color: #fff;
   background-color: #1C4D8C;
 }
 
-.skill-card {
-  flex: 1 1 11.25rem;
-  padding: 0.2rem;
-  background: #7e0101;
-  text-align: center;
-  border-radius: 8px;
-  color: #fff;
-  min-width: 9.4rem;
-  max-width: 15.6rem;
+/* Center skill cards */
+.about .skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
 }
 
 /* Projects */
@@ -375,7 +394,7 @@ section {
 footer {
   width: 100%;
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 0.8rem;
   color: #01bef8;
   background-color: #3471cc21;
