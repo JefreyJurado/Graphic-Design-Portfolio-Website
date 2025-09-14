@@ -48,18 +48,27 @@ body {
 
 /* Global */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ensures full screen height */
   font-family: Nunito, sans-serif;
   line-height: 1.6;
   color: #ffffff;
   background: url("../images/blueredbackground.jpg") no-repeat center center fixed;
   background-size: cover;
-  margin: 0;        
-  padding: 0;      
+  margin: 0;
+  padding: 0;
 }
 
+/* Home background */
 body.home {
   background: url("../images/newblueredbackground.jpg") no-repeat center center fixed;
   background-size: cover;
+}
+
+main {
+  flex: 1; /* expand to fill space between nav and footer */
+  min-height: calc(100vh - 60px); /* adjust 60px if footer height changes */
 }
 
 h1, h2 {
@@ -348,20 +357,14 @@ section {
 
 /* Footer */
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
-  text-align: left;
-  margin: 0;
-  padding-left: 2.8rem; 
-  padding-top: 0.6rem; 
-  padding-bottom: 0.6rem;
+  text-align: center;
+  padding: 0.8rem;
   font-size: 0.8rem;
   color: #01bef8;
-  box-sizing: border-box;
   background-color: #3471cc21;
   backdrop-filter: blur(10px);
+  margin-top: auto; /* stick footer to bottom naturally */
 }
 
 /* Responsive Design*/
