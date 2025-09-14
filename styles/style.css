@@ -87,9 +87,9 @@ section {
 
 .hero {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 70vh; 
+  align-items: center;        /* vertical centering */
+  justify-content: flex-start; /* keep content to the left */
+  min-height: calc(100vh - 60px); /* fill screen minus footer */
   padding: 2.5rem;
   background: #dde0e400;
   text-align: left;
@@ -97,13 +97,12 @@ section {
 
 .hero-text {
   max-width: 65%;
-  margin-left: 0;
-  text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  justify-content: center; /* center text vertically */
+  align-items: flex-start; /* keep text left-aligned */
 }
+
 
 .hero-text h1,
 .hero-text p,
