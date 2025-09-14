@@ -66,11 +66,6 @@ body.home {
   background-size: cover;
 }
 
-main {
-  flex: 1; /* expand to fill space between nav and footer */
-  min-height: calc(100vh - 60px); /* adjust 60px if footer height changes */
-}
-
 h1, h2 {
   margin-bottom: 1rem;
   max-width: 70%;
@@ -310,47 +305,59 @@ section {
   max-width: 20rem;
 }
 
-/* Contact Section */
+/* Contact Section - Centered */
 .contact {
-  max-width: 65%;
-  min-height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;  /* vertical centering */
+  align-items: center;      /* horizontal centering */
+  min-height: 60vh;         /* fills most of viewport */
+  padding: 0 1rem;
+  text-align: center;       /* centers headings and paragraphs */
 }
 
 .contact h2 {
-  text-align: left;
-  max-width: 65%;
-  margin-left: 2.3rem;
-  font-size: 2.5rem;    
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #fff;
 }
 
 .contact-links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
-  gap: 1.25rem;
-  margin-left: 2.3rem;
-  max-width: 65%;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-auto-rows: 1fr;                   /* equal row heights */
+  gap: 2rem;                             /* spacing between rows and columns */
+  justify-items: center;                  /* center links horizontally in each cell */
+  align-items: center;                    /* center links vertically in each cell */
+  margin-bottom: 2rem;
 }
 
 .contact-links a {
   background: #1C4D8C;
   color: #fff;
   border-radius: 8px;
-  padding: 1rem 0.3rem;
+  padding: 1rem 0; /* uniform padding top & bottom */
   text-align: center;
   font-weight: 600;
   text-decoration: none;
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.08);
   transition: transform 0.2s, background 0.2s, color 0.2s;
-}
 
-.contact-links a i {
-  margin-right: 0.5rem; /* space between icon and text */
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  width: 180px;   /* set a fixed width */
+  height: 60px;   /* set a fixed height */
+  min-width: 180px; 
+  min-height: 60px;
 }
 
 .contact-links a:hover {
@@ -359,16 +366,22 @@ section {
   color: #172940;
 }
 
+.contact-links a i {
+  font-size: 1.2rem;
+}
+
+
 /* Footer */
 footer {
   width: 100%;
   text-align: center;
-  padding: 0.8rem;
+  padding: 1rem;
   font-size: 0.8rem;
   color: #01bef8;
   background-color: #3471cc21;
   backdrop-filter: blur(10px);
-  margin-top: auto; /* stick footer to bottom naturally */
+  margin-top: 0; /* reset */
+  position: static; /* allow footer to follow content */
 }
 
 /* Footer Links */
@@ -397,8 +410,10 @@ html, body {
 }
 
 main {
-  flex: 1; /* pushes footer down */
-  display: block; /* ensures proper layout */
+  flex: 1;               /* fill available space */
+  display: block;        /* ensures proper layout */
+  padding-bottom: 1rem;  /* extra space so content doesn’t touch footer */
+  min-height: auto;      /* remove calc(100vh - 60px) */
 }
 
 /* Responsive Design*/
