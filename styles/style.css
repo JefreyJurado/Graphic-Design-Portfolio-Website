@@ -16,7 +16,6 @@ nav {
   display: flex;
   justify-content: center; /* centers links horizontally */
   align-items: center;     /* vertically centers links inside nav */
-  
   position: sticky;
   top: 0;
   z-index: 1000;
