@@ -59,8 +59,8 @@ body {
   font-family: Nunito, sans-serif;
   line-height: 1.6;
   color: #ffffff;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
 
   /* Background default for desktop */
   background-image: url("../images/blueredbackground.jpg");
@@ -79,16 +79,7 @@ body.home {
   background-attachment: fixed;  /* desktop parallax effect */
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  body,
-  body.home {
-    background-attachment: scroll;  /* fix mobile rendering */
-    background-size: cover;         /* still fills viewport */
-  }
-}
-
-h1, h2 {
+/* h1, h2 {
   margin-bottom: 1rem;
   max-width: 70%;
 }
@@ -96,7 +87,7 @@ h1, h2 {
 h2, p {
   color: #fff;
   margin-left: 0.6rem;
-}
+} */
 
 section {
   margin: 3rem 0;
@@ -237,14 +228,14 @@ section {
   background-attachment: initial; /* no parallax for few items */
 }
 
-/* Mobile-specific overrides */
+/* Mobile-specific overrides
 @media (max-width: 768px) {
   .projects {
     background-size: cover;
     padding: 2rem 0;
-    background-attachment: initial; /* ensure no scroll effect on mobile */
+    background-attachment: initial;
   }
-}
+} */
 
 .projects h2 {
   text-align: left;
@@ -255,7 +246,7 @@ section {
 }
 
 .projects p {
-  text-align: left;
+  text-align: center;
   margin-left: 2.3rem;
   max-width: 65%;
   margin-bottom: 1.8rem;
@@ -285,50 +276,84 @@ section {
 }
 
 /* Skills and Testimonials */
-.skills-testimonials {
+
+.skills {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 70vh;
-  margin-left: 2.3rem;
-  max-width: 65%;
+  align-items: center;          
+  width: 100%;
+  padding: 2rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;       
+  box-sizing: border-box;
+  background-attachment: initial;
+  margin-bottom: 0.5rem;
 }
 
-.skills-testimonials h2 {
-  text-align: left;
+.skills p {
+  text-align: center;
+  max-width: 100%;
+}
+
+.skills h2 {
+  text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  margin-left: 0;
-  max-width: 100%;
 }
 
 .skill-tags {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
-  margin-top: 1rem;
+  justify-content: center;   
+  flex-wrap: wrap;           
+  gap: 0.75rem; 
+  margin: 1.5rem auto 2.5rem;  
+  max-width: 70%;
+  margin-bottom: 0.0rem;      
 }
 
 .skill-tags span {
   background: #1C4D8C;
   color: #fff;
-  padding: 0.6rem 1.4rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 20px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 500;
+  text-align: center;
 }
+
+/* Testimonials Section */
 
 .testimonials {
-  display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  margin-top: 1.25rem;
+  max-width: 1300px;
+  margin: 3rem auto;   /* centers the section block */
+  padding: 0 9rem;    
+  margin-top: 0.1rem;
 }
 
-.testimonials blockquote {
-  flex: 1 1 13.75rem;
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.testimonials p {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  justify-items: center;
+}
+
+.testimonials-grid blockquote {
   background: #BDD4F2;
   color: #172940;
   padding: 1.25rem 1.1rem;
@@ -337,9 +362,11 @@ section {
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.06);
   min-width: 11.25rem;
   max-width: 20rem;
+  text-align: center;
 }
 
 /* Contact Section - Centered */
+
 .contact {
   display: flex;
   flex-direction: column;
@@ -411,7 +438,7 @@ footer {
   text-align: center;
   padding: 0.5rem;
   font-size: 0.8rem;
-  color: #01bef8;
+  color: #fff;
   background-color: #3471cc21;
   backdrop-filter: blur(10px);
   margin-top: 0; /* reset */
@@ -569,4 +596,3 @@ main {
     font-size: 0.7rem;
   }
 }
-
