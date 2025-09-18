@@ -526,14 +526,17 @@ main {
 /* Mobile (≤768px) */
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    padding: 0.5rem 1rem;
+    flex-direction: row;       /* stay horizontal */
+    justify-content: center;   /* center links */
+    flex-wrap: wrap;           /* wrap if needed */
+    padding: 0.3rem 0.5rem;    /* smaller padding */
   }
 
   nav a {
-    margin: 0.3rem 0;
-    width: 100%;
-    text-align: center;
+    margin: 0.2rem;            /* tighter spacing */
+    padding: 0.3rem 0.6rem;    /* smaller button size */
+    font-size: 0.8rem;         /* smaller text */
+    border-radius: 4px;        /* keep subtle rounded look */
   }
 
   .hero-text h1 {
