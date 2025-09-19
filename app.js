@@ -55,10 +55,7 @@ if (heroTitle) {
   typeWriter(heroTitle, text, 60);
 }
 
-// ============================
 // Testimonials Carousel
-// ============================
-
 const track = document.querySelector(".testimonials-track");
 const slides = document.querySelectorAll(".testimonials-track blockquote");
 
@@ -66,8 +63,29 @@ let currentIndex = 0;
 
 // Function to update slide position
 function updateCarousel() {
-  const slideWidth = slides[0].getBoundingClientRect().width + 16; // 16 = gap
+  const slideWidth = slides[0].getBoundingClientRect().width + 16; // include gap
   track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+  // Update button states
+  if (currentIndex === 0) {
+    prevBtn.disabled = true;
+    prevBtn.style.opacity = "0.5";
+    prevBtn.style.cursor = "not-allowed";
+  } else {
+    prevBtn.disabled = false;
+    prevBtn.style.opacity = "1";
+    prevBtn.style.cursor = "pointer";
+  }
+
+  if (currentIndex >= slides.length - 1) {
+    nextBtn.disabled = true;
+    nextBtn.style.opacity = "0.5";
+    nextBtn.style.cursor = "not-allowed";
+  } else {
+    nextBtn.disabled = false;
+    nextBtn.style.opacity = "1";
+    nextBtn.style.cursor = "pointer";
+  }
 }
 
 // Next Slide
@@ -100,7 +118,6 @@ nextBtn.innerText = "⟩";
   btn.style.border = "none";
   btn.style.padding = "0.5rem 1rem";
   btn.style.margin = "0 0.5rem";
-  btn.style.cursor = "pointer";
   btn.style.borderRadius = "5px";
   btn.style.fontSize = "1.2rem";
 });
@@ -114,6 +131,9 @@ container.appendChild(controls);
 
 prevBtn.addEventListener("click", prevSlide);
 nextBtn.addEventListener("click", nextSlide);
+
+// Init
+updateCarousel();
 
 
 // About Section Enhancements
