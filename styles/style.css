@@ -242,15 +242,6 @@ section {
   background-attachment: initial; /* no parallax for few items */
 }
 
-/* Mobile-specific overrides
-@media (max-width: 768px) {
-  .projects {
-    background-size: cover;
-    padding: 2rem 0;
-    background-attachment: initial;
-  }
-} */
-
 .projects h2 {
   text-align: left;
   margin-left: 2.3rem;

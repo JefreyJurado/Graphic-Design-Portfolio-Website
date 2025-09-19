@@ -55,19 +55,38 @@ if (heroTitle) {
   typeWriter(heroTitle, text, 60);
 }
 
-// Testimonials Carousel (4 per view)
+// ============================
+// Testimonials Carousel
+// ============================
+
 const track = document.querySelector(".testimonials-track");
 const slides = document.querySelectorAll(".testimonials-track blockquote");
 
 let currentIndex = 0;
-const slidesPerView = 4;
 
-function updateSlide() {
-  const slideWidth = slides[0].getBoundingClientRect().width + 16;
+// Function to update slide position
+function updateCarousel() {
+  const slideWidth = slides[0].getBoundingClientRect().width + 16; // 16 = gap
   track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
 
-// Manual controls
+// Next Slide
+function nextSlide() {
+  if (currentIndex < slides.length - 1) {
+    currentIndex++;
+    updateCarousel();
+  }
+}
+
+// Previous Slide
+function prevSlide() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
+}
+
+// Controls
 const container = document.querySelector(".testimonials");
 const prevBtn = document.createElement("button");
 const nextBtn = document.createElement("button");
@@ -93,19 +112,9 @@ controls.appendChild(prevBtn);
 controls.appendChild(nextBtn);
 container.appendChild(controls);
 
-prevBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex -= slidesPerView;
-    updateSlide();
-  }
-});
+prevBtn.addEventListener("click", prevSlide);
+nextBtn.addEventListener("click", nextSlide);
 
-nextBtn.addEventListener("click", () => {
-  if (currentIndex < slides.length - slidesPerView) {
-    currentIndex += slidesPerView;
-    updateSlide();
-  }
-});
 
 // About Section Enhancements
 
