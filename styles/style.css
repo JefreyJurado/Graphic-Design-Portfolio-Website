@@ -24,27 +24,28 @@ nav {
 }
 
 nav a {
-  display: inline-block;      /* line them up */
-  margin: 0 0.5rem;           /* spacing between links */
-  padding: 0.6rem 2rem;       /* padding inside buttons */
-  color: #fff;                /* white text */
-  text-decoration: none;      /* remove underline */
+  display: inline-block;
+  margin: 0 0.3rem;
+  padding: 0.4rem 1rem;
+  color: #ffffff;          /* plain white text */
+  text-decoration: none;
   font-weight: bold;
-  border-radius: 5px;         /* keep px for sharpness */
-  background: rgba(46, 93, 180, 0.247); /* faint background */
-  transition: all 0.3s ease;  /* smooth hover effect */
+  border-radius: 5px;
+  background: none;        /* no box by default */
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  background: #4a4a4e50;       /* blue background on hover */
-  color: #BDD4F2;             /* light text on hover */
-  transform: translateY(-2px); /* little lift effect */
+  background: rgba(255, 255, 255, 0.15); /* transparent box only on hover */
+  color: #BDD4F2;
+  transform: translateY(-2px);
 }
 
 nav a.active {
-  background: #1C4D8C;
-  color: #fff;
+  background: #1C4D8C;  /* solid box only for active */
+  color: #ffffff;
 }
+
 
 body {
   background-color: #000000 !important;
