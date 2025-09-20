@@ -152,14 +152,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Resume button click
-  const resumeBtn = document.querySelector(".about .btn");
-  if (resumeBtn) {
-    resumeBtn.addEventListener("click", () => {
-      alert("Your resume is being downloaded!");
+  // const resumeBtn = document.querySelector(".about .btn");
+  // if (resumeBtn) {
+  //   resumeBtn.addEventListener("click", () => {
+  //     alert("Your resume is being downloaded!");
       // window.location.href = "resume/my-resume.pdf";
     });
-  }
-});
+//   }
+// });
 
 
 // ==============================
