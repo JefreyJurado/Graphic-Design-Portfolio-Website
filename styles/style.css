@@ -416,6 +416,34 @@ section {
   }
 }
 
+/* Modal arrows - mobile friendly */
+@media (max-width: 768px) {
+  .modal .prev,
+  .modal .next {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    z-index: 1001;
+  }
+
+  .modal .prev {
+    left: -20px; /* outside left of image */
+  }
+
+  .modal .next {
+    right: -20px; /* outside right of image */
+  }
+  
+  .modal-content img {
+    max-width: 90%;   /* shrink image so arrows fit outside */
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
 /* Skills and Testimonials */
 
 .skills {
