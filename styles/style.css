@@ -802,7 +802,7 @@ main {
   .hero-buttons .btn {
     width: 100%;
     margin-right: 0;
-    margin-bottom: 0.8rem;
+    /* margin-bottom: rem; */
     text-align: center;
   }
 
