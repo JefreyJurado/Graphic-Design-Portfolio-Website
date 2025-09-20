@@ -153,40 +153,69 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==============================
-// PROJECTS MODAL SLIDESHOW
+// PROJECTS MODAL SLIDESHOW (auto-detect jpg/png)
 // ==============================
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("projectModal");
-  if (!modal) return; // STOP if there is no modal on this page
-
   const projectCards = document.querySelectorAll(".project-card");
+  const modal = document.getElementById("projectModal");
+
+  // Only continue if modal exists
+  if (!modal) return;
+
   const modalImage = document.getElementById("modalImage");
   const closeModal = modal.querySelector(".close");
   const prevBtn = modal.querySelector(".prev");
   const nextBtn = modal.querySelector(".next");
 
+  if (!modalImage || !closeModal || !prevBtn || !nextBtn) return;
+
   const projectMap = {
-    "1_herbal-coffee": { folder: "images/projects/1_herbal-coffee/", prefix: "hc" },
-    "2_financial-poster": { folder: "images/projects/2_financial-poster/", prefix: "fp" },
-    "3_photoalbum": { folder: "images/projects/3_photoalbum/", prefix: "pa" },
-    "4_noor-gourmet": { folder: "images/projects/4_noor-gourmet/", prefix: "ng" },
-    "5_social-media": { folder: "images/projects/5_social-media/", prefix: "sm" },
-    "6_logo-designs": { folder: "images/projects/6_logo-designs/", prefix: "ld" }
+    "1_herbal-coffee": { folder: "images/projects/1_herbal-coffee/", prefix: "hc", total: 3 },
+    "2_financial-poster": { folder: "images/projects/2_financial-poster/", prefix: "fp", total: 3 },
+    "3_photoalbum": { folder: "images/projects/3_photoalbum/", prefix: "pa", total: 3 },
+    "4_noor-gourmet": { folder: "images/projects/4_noor-gourmet/", prefix: "ng", total: 3 },
+    "5_social-media": { folder: "images/projects/5_social-media/", prefix: "sm", total: 3 },
+    "6_logo-designs": { folder: "images/projects/6_logo-designs/", prefix: "ld", total: 3 }
   };
 
   let currentProject = null;
   let currentIndex = 1;
 
   function showImage(index) {
-    if (!currentProject) return;
+  if (!currentProject) return;
 
-    const config = projectMap[currentProject];
-    const jpgPath = `${config.folder}${config.prefix}${index}.jpg`;
-    const pngPath = `${config.folder}${config.prefix}${index}.png`;
+  const config = projectMap[currentProject];
+  const jpgPath = `${config.folder}${config.prefix}${index}.jpg`;
+  const pngPath = `${config.folder}${config.prefix}${index}.png`;
 
-    modalImage.src = jpgPath;
-    modalImage.onerror = () => (modalImage.src = pngPath);
-  }
+  // Try jpg first, then png, then skip if missing
+  const img = new Image();
+  img.onload = () => {
+    modalImage.src = img.src;
+  };
+  img.onerror = () => {
+    // Try PNG
+    const imgPng = new Image();
+    imgPng.onload = () => {
+      modalImage.src = imgPng.src;
+    };
+    imgPng.onerror = () => {
+      // Skip to next image if it exists
+      if (index < 6) {
+        currentIndex++;
+        showImage(currentIndex);
+      } else if (index > 1) {
+        currentIndex--;
+        showImage(currentIndex);
+      } else {
+        // No images available, show placeholder
+        modalImage.src = "images/placeholder.png";
+      }
+    };
+    imgPng.src = pngPath;
+  };
+  img.src = jpgPath;
+}
 
   projectCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -197,32 +226,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  if (nextBtn && prevBtn && closeModal) {
-    nextBtn.addEventListener("click", () => {
-      if (currentIndex < 6) currentIndex++;
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < projectMap[currentProject].total) {
+      currentIndex++;
       showImage(currentIndex);
-    });
+    }
+  });
 
-    prevBtn.addEventListener("click", () => {
-      if (currentIndex > 1) currentIndex--;
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 1) {
+      currentIndex--;
       showImage(currentIndex);
-    });
+    }
+  });
 
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 
-    window.addEventListener("click", (event) => {
-      if (event.target === modal) modal.style.display = "none";
-    });
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) modal.style.display = "none";
+  });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") modal.style.display = "none";
-      if (e.key === "ArrowRight") nextBtn.click();
-      if (e.key === "ArrowLeft") prevBtn.click();
-    });
-  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal.click();
+    if (e.key === "ArrowRight") nextBtn.click();
+    if (e.key === "ArrowLeft") prevBtn.click();
+  });
 });
+
+
 
 
 
