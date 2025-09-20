@@ -17,20 +17,53 @@
   </nav>
 
   <!-- Projects Section -->
-   <main>
+  <main>
     <section class="projects">
       <h2>Featured Projects</h2>
       <p>Explore a selection of my featured projects, showcasing creative design solutions and front-end development skills. Each project highlights my approach to visual storytelling, user experience, and technical execution.</p>
       <div class="project-grid">
-        <div class="project-card">Herbal Coffee Packaging Designs</div>
-        <div class="project-card">Financial Advisor's Poster Designs</div>
-        <div class="project-card">Photoalbum Designs</div>
-        <div class="project-card">Noor Gourmet Packaging Designs</div>
-        <div class="project-card">Social Media Poster Designs</div>
-        <div class="project-card">Logo Designs</div>
+        <div class="project-card" data-project="1_herbal-coffee">
+          <img src="images/projects/1_herbal-coffee/hc1.jpg" alt="Herbal Coffee Packaging">
+          <p>Herbal Coffee Packaging Designs</p>
+        </div>
+
+        <div class="project-card" data-project="2_financial-poster">
+          <img src="images/projects/2_financial-poster/fp1.jpg" alt="Financial Advisor Poster">
+          <p>Financial Advisor's Poster Designs</p>
+        </div>
+
+        <div class="project-card" data-project="3_photoalbum">
+          <img src="images/projects/3_photoalbum/pa1.jpg" alt="Photoalbum">
+          <p>Photoalbum Designs</p>
+        </div>
+
+        <div class="project-card" data-project="4_noor-gourmet">
+          <img src="images/projects/4_noor-gourmet/ng1.jpg" alt="Noor Gourmet Packaging">
+          <p>Noor Gourmet Packaging Designs</p>
+        </div>
+
+        <div class="project-card" data-project="5_social-media">
+          <img src="images/projects/5_social-media/sm1.jpg" alt="Social Media Poster">
+          <p>Social Media Poster Designs</p>
+        </div>
+
+        <div class="project-card" data-project="6_logo-designs">
+          <img src="images/projects/6_logo-designs/ld1.png" alt="Logo">
+          <p>Logo Designs</p>
+        </div>
       </div>
     </section>
   </main>
+
+<!-- Modal -->
+<div id="projectModal" class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-content">
+    <button class="prev">&#10094;</button>
+    <img id="modalImage" alt="Project Image">
+    <button class="next">&#10095;</button>
+  </div>
+</div>
 
   <footer>
     <p>© 2025 Jefrey Jurado. All rights reserved.</p>
