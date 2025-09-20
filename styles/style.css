@@ -412,22 +412,51 @@ section {
 
 /* Extra small devices (≤480px) */
 @media (max-width: 480px) {
-  .project-card {
-    width: 95%;                  /* nearly full width */
-    max-width: 300px;
-    padding: 0.4rem;
+  .hero-text h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
   }
 
-  .project-card img {
-    height: 140px;
+  .hero-buttons .btn {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.8rem;
+    text-align: center;
   }
 
-  .projects h2 {
-    font-size: 1.6rem;
+  .skill-tags span {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
   }
 
-  .projects p {
-    font-size: 0.85rem;
+  footer {
+    font-size: 0.7rem;
+  }
+}
+
+/* ===== Add mobile modal centering AFTER everything ===== */
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;       /* stack image + arrows vertically */
+    align-items: center;          /* center horizontally */
+    justify-content: center;      /* center vertically */
+    max-width: 95%;               /* take most of the screen width */
+    max-height: 90vh;             /* fit screen height */
+    margin: 0 auto;               /* center within modal */
+  }
+
+  .modal .prev,
+  .modal .next {
+    position: relative;           /* move arrows below/above image */
+    top: auto;
+    transform: none;
+    margin: 0.5rem;               /* spacing around arrows */
+  }
+
+  .modal-content img {
+    max-width: 100%;
+    height: auto;                 /* scale image proportionally */
+    border-radius: 10px;
   }
 }
 
