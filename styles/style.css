@@ -394,17 +394,18 @@ section {
   }
 
   .project-grid {
-    grid-template-columns: 1fr;   /* single column for mobile */
+    display: flex;               /* use flex for easier centering */
+    flex-direction: column;      /* stack cards vertically */
+    align-items: center;         /* center each card horizontally */
     gap: 1.5rem;
-    justify-items: center;        /* center each card */
     margin: 0 auto;
   }
 
   .project-card {
-    width: 100%;                  /* full width of container */
-    max-width: 350px;             /* optional max size */
-    text-align: center;           /* center text inside card */
-    padding: 1rem;                /* slightly more padding for mobile */
+    width: 100%;                  /* almost full width */
+    max-width: 350px;            /* prevent oversized cards */
+    text-align: center;           /* center content inside card */
+    margin-left: 2.5rem;
   }
 
   .project-card img {

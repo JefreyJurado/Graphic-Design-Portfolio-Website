@@ -156,12 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // PROJECTS MODAL SLIDESHOW
 // ==============================
 document.addEventListener("DOMContentLoaded", () => {
-  const projectCards = document.querySelectorAll(".project-card");
   const modal = document.getElementById("projectModal");
+  if (!modal) return; // STOP if there is no modal on this page
+
+  const projectCards = document.querySelectorAll(".project-card");
   const modalImage = document.getElementById("modalImage");
-  const closeModal = document.querySelector(".modal .close");
-  const prevBtn = document.querySelector(".modal .prev");
-  const nextBtn = document.querySelector(".modal .next");
+  const closeModal = modal.querySelector(".close");
+  const prevBtn = modal.querySelector(".prev");
+  const nextBtn = modal.querySelector(".next");
 
   const projectMap = {
     "1_herbal-coffee": { folder: "images/projects/1_herbal-coffee/", prefix: "hc" },
@@ -182,7 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const jpgPath = `${config.folder}${config.prefix}${index}.jpg`;
     const pngPath = `${config.folder}${config.prefix}${index}.png`;
 
-    // Try jpg first, fallback to png
     modalImage.src = jpgPath;
     modalImage.onerror = () => (modalImage.src = pngPath);
   }
@@ -192,41 +193,37 @@ document.addEventListener("DOMContentLoaded", () => {
       currentProject = card.getAttribute("data-project");
       currentIndex = 1;
       showImage(currentIndex);
-      modal.style.display = "flex"; // ✅ make sure modal is centered
+      modal.style.display = "flex";
     });
   });
 
-  // Navigation
-  nextBtn.addEventListener("click", () => {
-    if (currentIndex < 6) {
-      currentIndex++;
+  if (nextBtn && prevBtn && closeModal) {
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex < 6) currentIndex++;
       showImage(currentIndex);
-    }
-  });
+    });
 
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 1) {
-      currentIndex--;
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 1) currentIndex--;
       showImage(currentIndex);
-    }
-  });
+    });
 
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
+    closeModal.addEventListener("click", () => {
       modal.style.display = "none";
-    }
-  });
+    });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") modal.style.display = "none";
-    if (e.key === "ArrowRight") nextBtn.click();
-    if (e.key === "ArrowLeft") prevBtn.click();
-  });
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) modal.style.display = "none";
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") modal.style.display = "none";
+      if (e.key === "ArrowRight") nextBtn.click();
+      if (e.key === "ArrowLeft") prevBtn.click();
+    });
+  }
 });
+
 
 
 
