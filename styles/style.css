@@ -379,24 +379,55 @@ section {
   transform: scale(1.05);
 }
 
-/* Projects section mobile fix */
+/* Projects section mobile tweaks */
 @media (max-width: 768px) {
   .project-grid {
-    grid-template-columns: 1fr; /* already 1 column */
+    grid-template-columns: 1fr;  /* single column */
     gap: 1rem;
-    justify-items: center;      /* center cards horizontally */
+    justify-items: center;       /* center cards horizontally */
   }
 
   .project-card {
-    width: 100%;                /* take full width of container */
-    max-width: 400px;           /* optional: limits card size */
+    width: 90%;                  /* almost full width, with some padding */
+    max-width: 350px;            /* limit max width */
+    padding: 0.5rem;
   }
 
-  .projects h2,
+  .project-card img {
+    height: 160px;               /* slightly smaller image for mobile */
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .projects h2 {
+    font-size: 1.8rem;           /* smaller heading */
+    margin-bottom: 0.5rem;
+  }
+
   .projects p {
-    text-align: center;         /* center heading and description */
-    margin-left: 0;
-    margin-right: 0;
+    font-size: 0.9rem;           /* smaller description */
+    margin-bottom: 1rem;
+  }
+}
+
+/* Extra small devices (≤480px) */
+@media (max-width: 480px) {
+  .project-card {
+    width: 95%;                  /* nearly full width */
+    max-width: 300px;
+    padding: 0.4rem;
+  }
+
+  .project-card img {
+    height: 140px;
+  }
+
+  .projects h2 {
+    font-size: 1.6rem;
+  }
+
+  .projects p {
+    font-size: 0.85rem;
   }
 }
 
