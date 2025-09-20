@@ -150,17 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     highlight.textContent = "";
     typeEffect();
   }
-
-  // Resume button click
-  // const resumeBtn = document.querySelector(".about .btn");
-  // if (resumeBtn) {
-  //   resumeBtn.addEventListener("click", () => {
-  //     alert("Your resume is being downloaded!");
-      // window.location.href = "resume/my-resume.pdf";
-    });
-//   }
-// });
-
+});
 
 // ==============================
 // PROJECTS MODAL SLIDESHOW
