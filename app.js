@@ -23,20 +23,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Scroll-to-Top Button
-const scrollBtn = document.getElementById("scrollTopBtn");
-if (scrollBtn) {
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
-  });
-
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
-
 // Typewriter Effect in Hero
-function typeWriter(element, text, speed = 70) {
+function typeWriter(element, text, speed = 60) {
   let i = 0;
   function typing() {
     if (i < text.length) {
@@ -134,6 +122,39 @@ nextBtn.addEventListener("click", nextSlide);
 
 // Init
 updateCarousel();
+
+// ==============================
+// ABOUT SECTION INTERACTIVITY
+// ==============================
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Typing effect for the highlight
+  const text = "Graphic Designer & Developer";
+  const highlight = document.querySelector(".highlight");
+  let i = 0;
+
+  function typeEffect() {
+    if (i < text.length) {
+      highlight.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 100);
+    }
+  }
+
+  if (highlight) {
+    highlight.textContent = "";
+    typeEffect();
+  }
+
+  // Resume button click
+  const resumeBtn = document.querySelector(".about .btn");
+  if (resumeBtn) {
+    resumeBtn.addEventListener("click", () => {
+      alert("Your resume is being downloaded!");
+      // window.location.href = "resume/my-resume.pdf";
+    });
+  }
+});
 
 
 

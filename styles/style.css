@@ -156,27 +156,6 @@ section {
   margin: 0; 
 }
 
-/* Style the button */
-#scrollTopBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 25px;
-  z-index: 1000;
-  font-size: 1.5rem;
-  background: #1C4D8C;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-#scrollTopBtn:hover {
-  background: #BDD4F2;
-  color: #172940;
-}
-
 /* About */
 .about {
   display: flex;
@@ -192,6 +171,7 @@ section {
 .about h2 {
   font-size: 2.3rem;
   margin-left: 0;
+  margin-bottom: 1.1rem;
   width: 100%;               
   max-width: 900px;          
 }
@@ -208,25 +188,45 @@ section {
   font-weight: bold;
 }
 
-/* Center the button */
-.about .btn {
-  display: inline-block;
-  margin: 1.25rem 0;
-  padding: 0.4rem 0.6rem;
-  border-radius: 8px;
-  color: #fff;
-  background-color: #1C4D8C;
+/* Highlight effect */
+.highlight {
+  color: #50c2f7;
+  font-weight: bold;
+  transition: text-shadow 0.3s ease;
 }
 
-/* Center skill cards */
-/* .about .skills {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.25rem;
-} */
+.highlight:hover {
+  text-shadow: 0 0 10px #50c2f7, 0 0 20px #50c2f7;
+}
 
+/* Resume Buttons Wrapper */
+.resume-buttons {
+  display: flex;
+  gap: 1rem;             
+  justify-content: center; 
+  flex-wrap: wrap;      
+}
+
+/* View and Download Resume Button */
+.about .resume-buttons .btn {
+  margin: 1.9rem 0;
+  display: inline-block;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  background-color: #1C4D8C;
+  color: #fff;
+  transition: transform 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.resume-buttons .btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: #BDD4F2;
+  color: #172940;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+}
 
 /* Projects */
 .projects {
@@ -524,9 +524,7 @@ main {
   min-height: auto;      /* remove calc(100vh - 60px) */
 }
 
-/* =========================================
-   RESPONSIVE DESIGN
-   ========================================= */
+/* RESPONSIVE DESIGN */
 
 /* Tablet (≤1024px) */
 @media (max-width: 1024px) {
