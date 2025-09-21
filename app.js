@@ -128,9 +128,7 @@ if (container) {   // ✅ only run if testimonials section exists
   updateCarousel();
 }
 
-// ==============================
 // ABOUT SECTION INTERACTIVITY
-// ==============================
 
 document.addEventListener("DOMContentLoaded", () => {
   // Typing effect for the highlight
@@ -152,9 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ==============================
-// PROJECTS MODAL SLIDESHOW (auto-detect jpg/png)
-// ==============================
+// PROJECTS MODAL SLIDESHOW 
+
 document.addEventListener("DOMContentLoaded", () => {
   const projectCards = document.querySelectorAll(".project-card");
   const modal = document.getElementById("projectModal");
@@ -255,13 +252,91 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Wait for the page to load
+document.addEventListener("DOMContentLoaded", () => {
+  /* ========================
+     1. Copy Email to Clipboard
+  ========================= */
+  const emailLink = document.querySelector(".contact-links a[href^='mailto:']");
+  
+  if (emailLink) {
+    emailLink.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent opening email client
+      const email = emailLink.getAttribute("href").replace("mailto:", "");
+
+      navigator.clipboard.writeText(email).then(() => {
+        showToast(`📋 Email copied: ${email}`);
+      });
+    });
+  }
+
+  function showToast(message) {
+    const toast = document.createElement("div");
+    toast.textContent = message;
+    toast.style.position = "fixed";
+    toast.style.bottom = "20px";
+    toast.style.right = "20px";
+    toast.style.background = "linear-gradient(135deg, #1C4D8C, #2680f7ff)";
+    toast.style.color = "#fff";
+    toast.style.padding = "10px 15px";
+    toast.style.borderRadius = "8px";
+    toast.style.fontWeight = "500";
+    toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
+    toast.style.zIndex = "2000";
+    toast.style.opacity = "0";
+    toast.style.transition = "opacity 0.3s, transform 0.3s";
+    toast.style.transform = "translateY(20px)";
+
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = "1";
+      toast.style.transform = "translateY(0)";
+    }, 100);
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transform = "translateY(20px)";
+      setTimeout(() => toast.remove(), 300);
+    }, 2000);
+  }
+
+  /* ========================
+     2. Animate Contact Links on Scroll
+  ========================= */
+  const contactLinks = document.querySelectorAll(".contact-links a");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  contactLinks.forEach(link => {
+    link.classList.add("hidden");
+    observer.observe(link);
+  });
+});
 
 
+// Scroll reveal animations
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 }); // triggers when 20% is visible
 
-
-
-
-
-
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
 
