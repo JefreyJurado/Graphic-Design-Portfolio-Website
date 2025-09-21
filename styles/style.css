@@ -641,17 +641,6 @@ section {
   font-size: 1.2rem;
 }
 
-/* Contact Link Animations */
-.contact-links a.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.contact-links a.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Footer */
 footer {
   width: 100%;
@@ -830,6 +819,7 @@ main {
 }
 
 
+/* This is for transition */
 section {
   opacity: 0;
   transform: translateY(40px);
@@ -840,3 +830,48 @@ section.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+
+@media (max-width: 768px) {
+  .contact {
+    min-height: auto !important;   /* remove forced height */
+    padding: 50px 20px !important; /* equal spacing top & bottom */
+  }
+
+  /* Reset extra margins */
+  .contact > *:first-child {
+    margin-top: 1rem !important;
+  }
+  .contact > *:last-child {
+    margin-bottom: 0rem !important;
+  }
+
+  /* Form elements sometimes add bottom spacing */
+  .contact form {
+    margin-bottom: 0rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    min-height: auto !important;   /* remove the forced 70vh height */
+    padding: 50px 20px !important; /* equal spacing top & bottom */
+  }
+
+  /* Reset margins of children to prevent uneven space */
+  .about > *:first-child {
+    margin-top: 1rem !important;
+  }
+  .about > *:last-child {
+    margin-bottom: 0rem !important;
+  }
+
+  /* Resume buttons already add extra bottom space, so shrink it */
+  .about .resume-buttons {
+    margin: 1rem 0 !important;
+  }
+}
+
+
+
+
