@@ -721,11 +721,11 @@ main {
   }
 
   .projects h2,
-  .projects p,
+  /* .projects p, */
   .project-grid {
     margin-left: 0;
     max-width: 90%;
-    text-align: center;
+    /* text-align: center; */
   }
 
   .testimonials {
@@ -769,8 +769,10 @@ main {
     font-size: 2rem;
   }
 
-  .projects p {
+  .project-card > p {
     font-size: 0.95rem;
+    text-align: center;
+    max-width: 100%;
   }
 
   .project-grid {

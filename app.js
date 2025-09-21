@@ -170,12 +170,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!modalImage || !closeModal || !prevBtn || !nextBtn) return;
 
   const projectMap = {
-    "1_herbal-coffee": { folder: "images/projects/1_herbal-coffee/", prefix: "hc", total: 3 },
-    "2_financial-poster": { folder: "images/projects/2_financial-poster/", prefix: "fp", total: 3 },
-    "3_photoalbum": { folder: "images/projects/3_photoalbum/", prefix: "pa", total: 3 },
-    "4_noor-gourmet": { folder: "images/projects/4_noor-gourmet/", prefix: "ng", total: 3 },
-    "5_social-media": { folder: "images/projects/5_social-media/", prefix: "sm", total: 3 },
-    "6_logo-designs": { folder: "images/projects/6_logo-designs/", prefix: "ld", total: 3 }
+    "1_herbal-coffee": { folder: "images/projects/1_herbal-coffee/", prefix: "hc", total: 6 },
+    "2_financial-poster": { folder: "images/projects/2_financial-poster/", prefix: "fp", total: 6 },
+    "3_photoalbum": { folder: "images/projects/3_photoalbum/", prefix: "pa", total: 6 },
+    "4_noor-gourmet": { folder: "images/projects/4_noor-gourmet/", prefix: "ng", total: 6 },
+    "5_social-media": { folder: "images/projects/5_social-media/", prefix: "sm", total: 6 },
+    "6_logo-designs": { folder: "images/projects/6_logo-designs/", prefix: "ld", total: 6 }
   };
 
   let currentProject = null;
