@@ -56,7 +56,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: Nunito, sans-serif;
+  font-family: Open Sans, sans-serif;
   line-height: 1.6;
   color: #ffffff;
 
@@ -66,6 +66,12 @@ body {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;  /* desktop parallax effect */
+}
+
+/* Headers and navigation */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 /* Optional homepage background */
@@ -179,7 +185,7 @@ section {
 .about p {
   margin-left: 0;
   width: 100%;               
-  max-width: 900px;         
+  max-width: 1000px;         
 }
 
 /* Highlight specific words */
@@ -262,8 +268,9 @@ section {
 
 .projects > p {
   text-align: center;
-  margin: 0 auto 2rem; /* ⬅ this "2rem" is the bottom space */
-  max-width: 800px;
+  margin: 0 auto 2rem;
+  max-width: 1000px;   /* ⬅ reduce width for better readability */
+  padding: 5 1.5rem;
   line-height: 1.6;
   color: #ddd;
 }
