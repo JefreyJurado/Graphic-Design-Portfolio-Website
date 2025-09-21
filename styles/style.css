@@ -27,7 +27,7 @@ nav a {
   display: inline-block;
   margin: 0 0.3rem;
   padding: 0.4rem 1rem;
-  color: #ffffff;          /* plain white text */
+  color: #02f7ff; 
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
@@ -46,7 +46,6 @@ nav a.active {
   color: #ffffff;
 }
 
-
 body {
   background-color: #000000 !important;
 }
@@ -61,7 +60,7 @@ body {
   color: #ffffff;
 
   /* Background default for desktop */
-  background-image: url("../images/blueredbackground.jpg");
+  background-image: url("../images/mainbg.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -76,11 +75,19 @@ h1, h2, h3 {
 
 /* Optional homepage background */
 body.home {
-  background-image: url("../images/newblueredbackground.jpg");
+  background-image: url("../images/mainbg2.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;  /* desktop parallax effect */
+}
+
+/* Remove nav background ONLY on home section */
+body.home nav {
+  background-color: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  padding: 1rem 1rem;
 }
 
 section {
@@ -91,11 +98,12 @@ section {
   display: flex;
   align-items: center;
   justify-content: flex-start; 
-  min-height: calc(100vh - 60px); 
+  min-height: auto;   /* changed from 100vh */
   padding: 2.5rem;
   background: #dde0e400;
   text-align: left;
   margin-left: 3rem;
+  margin-top: 4.5rem;
 }
 
 .hero-text {
@@ -696,35 +704,42 @@ main {
 /* RESPONSIVE DESIGN */
 
 /* Tablet (≤1024px) */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .hero {
-    flex-direction: column;      /* stack text & image */
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    height: 85dvh;          /* use dynamic viewport height to avoid mobile scroll */
+    padding: 0 1.5rem;       /* horizontal padding only */
+    margin: 0;
+    overflow: hidden;        /* prevent extra scroll */
     text-align: center;
-    margin-left: 0;
-    padding: 2rem 1rem;
   }
 
   .hero-text {
-    max-width: 100%;
-    align-items: center; /* center on smaller screens */
-  }
-
-  .hero-text h1 {
-    font-size: 3rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
+    max-width: 90%;
+    align-items: center;
+    margin: 0;
   }
 
   .hero-buttons {
+    margin-top: 1.5rem; 
     text-align: center;
   }
 
+  .hero-buttons .btn {
+    margin: 0.5rem 0;
+    width: 80%;
+  }
+
   .hero-image {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .hero-image img {
+    max-width: 80%;
+    height: auto;
   }
 
   .projects h2,
