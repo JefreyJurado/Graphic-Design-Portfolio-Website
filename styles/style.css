@@ -59,12 +59,12 @@ body {
   line-height: 1.6;
   color: #ffffff;
 
-  /* Background default for desktop */
+  /* Default background (JPG fallback) */
   background-image: url("../images/mainbg.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed;  /* desktop parallax effect */
+  background-attachment: fixed;
 }
 
 /* Headers and navigation */
@@ -73,13 +73,13 @@ h1, h2, h3 {
   font-weight: 700;
 }
 
-/* Optional homepage background */
+/* homepage background */
 body.home {
   background-image: url("../images/mainbg2.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed;  /* desktop parallax effect */
+  background-attachment: fixed;
 }
 
 /* Remove nav background ONLY on home section */
@@ -575,20 +575,6 @@ section {
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.06);
 }
 
-/* Tablet (≤ 900px) */
-@media (max-width: 900px) {
-  .testimonials-track blockquote {
-    flex: 0 0 calc(50% - 1rem); /* 2 per row */
-  }
-}
-
-/* Mobile (≤ 600px) */
-@media (max-width: 600px) {
-  .testimonials-track blockquote {
-    flex: 0 0 100%; /* 1 per row */
-  }
-}
-
 /* Contact Section - Centered */
 
 .contact {
@@ -703,6 +689,22 @@ main {
 
 /* RESPONSIVE DESIGN */
 
+/* Tablet (≤ 900px) */
+@media (max-width: 900px) {
+  .testimonials-track blockquote {
+    flex: 0 0 calc(50% - 1rem); /* 2 per row */
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+  .testimonials-track blockquote {
+    flex: 0 0 100%; /* 1 per row */
+    margin-bottom: 0.8rem;
+  }
+}
+
 /* Tablet (≤1024px) */
 @media (max-width: 768px) {
   .hero {
@@ -751,11 +753,24 @@ main {
   }
 
   .testimonials {
-    padding: 0 2rem;
+    padding: 0 1rem;       /* lighter padding for small screens */
+    margin-top: 1.1rem auto;   /* smaller section spacing */
+  }
+
+  .testimonials p {
+    margin-bottom: 1.2rem;   /* tighten space under the intro text */
   }
 
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills {
+    margin-top: 1.3rem;
+  }
+
+  .skills p {
+    margin-top: 0.1px;
   }
 }
 
@@ -840,7 +855,6 @@ main {
   }
 }
 
-
 /* This is for transition */
 section {
   opacity: 0;
@@ -876,8 +890,8 @@ section.visible {
 
 @media (max-width: 768px) {
   .about {
-    min-height: auto !important;   /* remove the forced 70vh height */
-    padding: 50px 20px !important; /* equal spacing top & bottom */
+    min-height: auto !important;   
+    padding: 50px 20px !important; 
   }
 
   /* Reset margins of children to prevent uneven space */

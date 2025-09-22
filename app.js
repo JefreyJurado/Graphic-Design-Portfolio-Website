@@ -1,5 +1,19 @@
 
+// Global WebP Support Detection
+
+function canUseWebP() {
+  const elem = document.createElement("canvas");
+  if (!!(elem.getContext && elem.getContext("2d"))) {
+    return elem.toDataURL("image/webp").indexOf("data:image/webp") === 0;
+  }
+  return false;
+}
+const supportsWebP = canUseWebP(); // ✅ reuse everywhere
+
+
+
 // Active Navigation Highlight
+
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll("nav a");
   const currentPage = window.location.pathname.split("/").pop();
@@ -13,7 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
 // Smooth Scroll for Anchor Links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -23,7 +39,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
+
 // Typewriter Effect in Hero
+
 function typeWriter(element, text, speed = 60) {
   let i = 0;
   function typing() {
@@ -43,7 +62,10 @@ if (heroTitle) {
   typeWriter(heroTitle, text, 60);
 }
 
+
+
 // Testimonials Carousel
+
 const track = document.querySelector(".testimonials-track");
 const slides = document.querySelectorAll(".testimonials-track blockquote");
 
@@ -51,37 +73,36 @@ let currentIndex = 0;
 
 // Controls
 const container = document.querySelector(".testimonials");
-let prevBtn, nextBtn; // <- moved outside to fix scope
+let prevBtn, nextBtn;
 
-// Function to update slide position
+// Update slide position
 function updateCarousel() {
-  const slideWidth = slides[0].getBoundingClientRect().width + 16; // include gap
+  const slideWidth = slides[0].getBoundingClientRect().width + 16;
   track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-  // Left button (prev)
+  // Left button
   if (currentIndex === 0) {
     prevBtn.disabled = true;
-    prevBtn.style.background = "#081935ff"; // darker blue when no more slides
+    prevBtn.style.background = "#081935ff";
     prevBtn.style.cursor = "not-allowed";
   } else {
     prevBtn.disabled = false;
-    prevBtn.style.background = "#1C4D8C"; // normal blue
+    prevBtn.style.background = "#1C4D8C";
     prevBtn.style.cursor = "pointer";
   }
 
-  // Right button (next)
+  // Right button
   if (currentIndex >= slides.length - 1) {
     nextBtn.disabled = true;
-    nextBtn.style.background = "#ccc"; // gray when no more slides
+    nextBtn.style.background = "#ccc";
     nextBtn.style.cursor = "not-allowed";
   } else {
     nextBtn.disabled = false;
-    nextBtn.style.background = "#1C4D8C"; // normal blue
+    nextBtn.style.background = "#1C4D8C";
     nextBtn.style.cursor = "pointer";
   }
 }
 
-// Next Slide
 function nextSlide() {
   if (currentIndex < slides.length - 1) {
     currentIndex++;
@@ -89,7 +110,6 @@ function nextSlide() {
   }
 }
 
-// Previous Slide
 function prevSlide() {
   if (currentIndex > 0) {
     currentIndex--;
@@ -97,7 +117,7 @@ function prevSlide() {
   }
 }
 
-if (container) {   // ✅ only run if testimonials section exists
+if (container) {
   prevBtn = document.createElement("button");
   nextBtn = document.createElement("button");
 
@@ -124,14 +144,14 @@ if (container) {   // ✅ only run if testimonials section exists
   prevBtn.addEventListener("click", prevSlide);
   nextBtn.addEventListener("click", nextSlide);
 
-  // Init
   updateCarousel();
 }
+
+
 
 // ABOUT SECTION INTERACTIVITY
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Typing effect for the highlight
   const text = "Graphic Designer & Developer";
   const highlight = document.querySelector(".highlight");
   let i = 0;
@@ -150,13 +170,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// PROJECTS MODAL SLIDESHOW 
+
+
+// PROJECTS MODAL SLIDESHOW
 
 document.addEventListener("DOMContentLoaded", () => {
   const projectCards = document.querySelectorAll(".project-card");
   const modal = document.getElementById("projectModal");
 
-  // Only continue if modal exists
   if (!modal) return;
 
   const modalImage = document.getElementById("modalImage");
@@ -179,40 +200,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 1;
 
   function showImage(index) {
-  if (!currentProject) return;
+    if (!currentProject) return;
+    const config = projectMap[currentProject];
 
-  const config = projectMap[currentProject];
-  const jpgPath = `${config.folder}${config.prefix}${index}.jpg`;
-  const pngPath = `${config.folder}${config.prefix}${index}.png`;
+    const path = supportsWebP
+      ? `${config.folder}${config.prefix}${index}.webp`
+      : `${config.folder}${config.prefix}${index}.jpg`;
 
-  // Try jpg first, then png, then skip if missing
-  const img = new Image();
-  img.onload = () => {
-    modalImage.src = img.src;
-  };
-  img.onerror = () => {
-    // Try PNG
-    const imgPng = new Image();
-    imgPng.onload = () => {
-      modalImage.src = imgPng.src;
-    };
-    imgPng.onerror = () => {
-      // Skip to next image if it exists
-      if (index < 6) {
-        currentIndex++;
-        showImage(currentIndex);
-      } else if (index > 1) {
-        currentIndex--;
-        showImage(currentIndex);
-      } else {
-        // No images available, show placeholder
-        modalImage.src = "images/placeholder.png";
-      }
-    };
-    imgPng.src = pngPath;
-  };
-  img.src = jpgPath;
-}
+    modalImage.src = path;
+  }
 
   projectCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -252,16 +248,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Wait for the page to load
+
+
+// CONTACT PAGE INTERACTIVITY
+
 document.addEventListener("DOMContentLoaded", () => {
-  /* ========================
-     1. Copy Email to Clipboard
-  ========================= */
+  // Copy email
   const emailLink = document.querySelector(".contact-links a[href^='mailto:']");
   
   if (emailLink) {
     emailLink.addEventListener("click", (e) => {
-      e.preventDefault(); // prevent opening email client
+      e.preventDefault();
       const email = emailLink.getAttribute("href").replace("mailto:", "");
 
       navigator.clipboard.writeText(email).then(() => {
@@ -300,11 +297,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
   }
 
-  /* ========================
-     2. Animate Contact Links on Scroll
-  ========================= */
+  // Animate contact links
   const contactLinks = document.querySelectorAll(".contact-links a");
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -323,7 +317,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
 // Scroll reveal animations
+
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
 
@@ -333,10 +329,29 @@ document.addEventListener("DOMContentLoaded", () => {
         entry.target.classList.add("visible");
       }
     });
-  }, { threshold: 0.2 }); // triggers when 20% is visible
+  }, { threshold: 0.2 });
 
   sections.forEach(section => {
     observer.observe(section);
   });
 });
 
+
+
+// WebP for CSS Backgrounds & Thumbnails
+
+if (supportsWebP) {
+  document.body.style.backgroundImage = 'url("images/mainbg.webp")';
+  if (document.body.classList.contains("home")) {
+    document.body.style.backgroundImage = 'url("images/mainbg2.webp")';
+  }
+
+  // Swap project thumbnails
+  document.querySelectorAll(".project-card img").forEach(img => {
+    if (img.src.endsWith(".jpg")) {
+      img.src = img.src.replace(".jpg", ".webp");
+    } else if (img.src.endsWith(".png")) {
+      img.src = img.src.replace(".png", ".webp");
+    }
+  });
+}
