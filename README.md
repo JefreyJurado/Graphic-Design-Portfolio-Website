@@ -1,66 +1,22 @@
-Jefrey Jurado Portfolio — Milestone 1 (HTML + CSS)
-Overview
+Jefrey Jurado Portfolio
 
-This is the first draft of my portfolio website. It’s built using HTML and CSS and follows the wireframe layout I designed.
-
-The goal here was to set up the structure and basic styling for the website. Later milestones will add more interactive features with Bootstrap and JavaScript.
-
-The website includes:
-
--Hero section
--About Me
--Featured Projects
--Skills & Testimonials
--Contact
--Footer
-
-File Structure
-portfolio/
-│
-├─ index.html          # Main HTML page
-├─ styles/
-│   └─ style.css       # Styling for the website
-├─ images/
-│   └─ profile.png     # Profile image for the Hero section
+This is my personal portfolio website that showcases my work as a graphic designer and developer. It is designed to be simple, professional, and easy to navigate.
 
 Sections
+1. Home
+The homepage introduces who I am and what I do. It has a short tagline and two call to action buttons: View My Work and Contact Me.
 
-Hero Section
--Introduces me and what I do.
--Includes headline, short tagline, buttons to "View My Work" and "Contact Me", and my profile image.
--Layout follows the wireframe: text on the left, image on the right.
+2. About Me
+This section shares more about my background, skills, and passion for design and development. It also includes a button to download my resume.
 
-About Me
--A short intro paragraph about me.
--"Download Resume" button.
--Skill cards for Design Tools, Web Tech, and Soft Skills.
--Matches the About Me section from the wireframe.
+3. Featured Projects
+Here I highlight selected design and development projects. Projects are displayed in a grid for better organization and easy browsing.
 
-Featured Projects
--Showcases 4 sample projects: Branding, Student/Case Project, Layout, Product Packaging.
--Displayed in a responsive grid that adjusts for different screen sizes.
--Matches the Projects section in the wireframe.
+4. Skills and Testimonials
+This section lists the tools and technologies I use. Testimonials from clients and collaborators are also featured to build credibility and trust.
 
-Skills & Testimonials
--Displays my main tools (Photoshop, Illustrator, Figma, etc.) as skill tags.
--Includes client/peer testimonials.
--Layout follows the wireframe: skills at the top, testimonials below.
+5. Contact and Footer
+The final section encourages collaboration by providing ways to connect through email and social platforms. The footer includes quick navigation and copyright information.
 
-Contact
--Buttons to reach me via Email, LinkedIn, GitHub, and Behance.
--Simple, clear layout just like in the wireframe.
-
-Footer
--Contains copyright notice.
--Matches wireframe footer style.
-
-Styling Notes
--Clean and simple design to match wireframe.
--Buttons have rounded corners and two colors for primary and secondary actions.
--Sections are spaced evenly for readability.
--Project grid and skill tags are responsive to screen size.
-
-Next Steps
--Add Bootstrap for a more polished layout and responsive features.
--Include JavaScript for interactive elements (sliders, pop-ups, etc.).
--Replace placeholder text and images with final portfolio content.
+Purpose
+The goal of this portfolio is to present my work and skills in a clean and professional way while making it easy for visitors to connect with me.
