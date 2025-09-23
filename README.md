@@ -12,6 +12,6 @@ Sections
 
 4. Skills and Testimonials - This section lists the tools and technologies I use. Testimonials from clients and collaborators are also featured to build credibility and trust.
 
-5. Contact and Footer - The final section encourages collaboration by providing ways to connect through email and social platforms. The footer includes copyright information.
-
+5. Contact - The final section encourages collaboration by providing ways to connect through email and social platforms.
+   
 Purpose: The goal of this portfolio is to present my work and skills in a clean and professional way while making it easy for visitors to connect with me.
