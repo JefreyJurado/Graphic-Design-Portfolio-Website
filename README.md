@@ -1,4 +1,4 @@
-Jefrey Jurado Portfolio
+Jefrey Jurado Graphic Design Portfolio
 
 This is my personal portfolio website that showcases my work as a graphic designer and developer. It is designed to be simple, professional, and easy to navigate.
 
