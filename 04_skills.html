@@ -6,6 +6,28 @@
   <title>Skills - Jefrey Jurado</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
+
+<style>
+  .testimonial-date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.4rem;
+    width: 100%;
+  }
+  .testimonial-date::before {
+    content: "";
+    display: inline-block;
+    width: 12px;   /* smaller icon */
+    height: 12px;  /* smaller icon */
+    margin-right: 6px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>') no-repeat center;
+    background-size: contain;
+  }
+</style>
+
 </head>
 <body>
 
@@ -21,48 +43,99 @@
 
   <main>
     <section class="skills">
-  <h2>Skills</h2>
-  <p>These are the tools and software I use to bring ideas to life. Each skill helps me create designs that are both visually appealing and effective.</p>
+      <h2>Skills</h2>
+      <p>These are the tools and software I use to bring ideas to life. Each skill helps me create designs that are both visually appealing and effective.</p>
   
-    <div class="skill-logos">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Adobe Photoshop" title="Adobe Photoshop">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Adobe Illustrator" title="Adobe Illustrator">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="Adobe InDesign" title="Adobe InDesign">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects" title="After Effects">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere Pro" title="Premiere Pro">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Adobe_Dimension_Logo.svg" alt="Dimension" title="Dimension">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg" alt="Adobe Lightroom" title="Adobe Lightroom">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg" alt="Adobe XD" title="Adobe XD">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" title="Figma">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML5" title="HTML5">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS3" title="CSS3">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript" title="JavaScript">
-    </div>
+      <div class="skill-logos">
+        <div class="logos-track">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Adobe Photoshop">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Adobe Illustrator">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="Adobe InDesign">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere Pro">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Adobe_Dimension_Logo.svg" alt="Dimension">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg" alt="Adobe Lightroom">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg" alt="Adobe XD">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML5">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS3">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript">
 
-</section>
+          <!-- Duplicate once for seamless loop -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Adobe Photoshop">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Adobe Illustrator">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="Adobe InDesign">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere Pro">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Adobe_Dimension_Logo.svg" alt="Dimension">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg" alt="Adobe Lightroom">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg" alt="Adobe XD">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML5">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS3">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript">
+        </div>
+      </div>
+    </section>
 
     <!-- Testimonials Section -->
 
     <section class="testimonials">
       <h2>Testimonials</h2>
-        <p>Here’s what clients and collaborators have said about my work. Their feedback highlights not only the creativity and quality of my designs, but also my dedication to collaboration, consistency, and delivering results that exceed expectations.</p>
+      <p>Here’s what clients and collaborators have said about my work. Their feedback highlights not only the creativity and quality of my designs, but also my dedication to collaboration, consistency, and delivering results that exceed expectations.</p>
 
-        <div class="testimonials-container">
-          <div class="testimonials-track">
-            <blockquote>"Jefrey’s designs are creative and professional!"</blockquote>
-            <blockquote>"Great attention to detail and fast turnaround."</blockquote>
-            <blockquote>"A reliable collaborator and problem solver."</blockquote>
-            <blockquote>"His work always exceeds expectations!"</blockquote>
-            <blockquote>"Creative, responsive, and easy to work with."</blockquote>
-            <blockquote>"Consistently delivers high-quality design solutions."</blockquote>
-            <blockquote>"A true professional who brings ideas to life."</blockquote>
-            <blockquote>"Excellent communication and collaborative approach."</blockquote>
-            <blockquote>"Innovative designs that stand out every time."</blockquote>
-            <blockquote>"Highly recommend for any design project!"</blockquote>
-            <blockquote>"Transforms concepts into visually stunning designs."</blockquote>
-            <blockquote>"Dependable, skilled, and highly creative."</blockquote>
-          </div>
+      <div class="testimonials-container">
+        <div class="testimonials-track">
+          <blockquote>
+            "Jefrey’s designs are creative and professional!"
+            <span class="testimonial-date">Jan 2025</span>
+          </blockquote>
+          <blockquote>
+            "Great attention to detail and fast turnaround."
+            <span class="testimonial-date">Dec 2024</span>
+          </blockquote>
+          <blockquote>
+            "A reliable collaborator and problem solver."
+            <span class="testimonial-date">Nov 2024</span>
+          </blockquote>
+          <blockquote>
+            "His work always exceeds expectations!"
+            <span class="testimonial-date">Oct 2024</span>
+          </blockquote>
+          <blockquote>
+            "Creative, responsive, and easy to work with."
+            <span class="testimonial-date">Sep 2024</span>
+          </blockquote>
+          <blockquote>
+            "Consistently delivers high-quality design solutions."
+            <span class="testimonial-date">Aug 2024</span>
+          </blockquote>
+          <blockquote>
+            "A true professional who brings ideas to life."
+            <span class="testimonial-date">Jul 2024</span>
+          </blockquote>
+          <blockquote>
+            "Excellent communication and collaborative approach."
+            <span class="testimonial-date">Jun 2024</span>
+          </blockquote>
+          <blockquote>
+            "Innovative designs that stand out every time."
+            <span class="testimonial-date">May 2024</span>
+          </blockquote>
+          <blockquote>
+            "Highly recommend for any design project!"
+            <span class="testimonial-date">Apr 2024</span>
+          </blockquote>
+          <blockquote>
+            "Transforms concepts into visually stunning designs."
+            <span class="testimonial-date">Mar 2024</span>
+          </blockquote>
+          <blockquote>
+            "Dependable, skilled, and highly creative."
+            <span class="testimonial-date">Feb 2024</span>
+          </blockquote>
         </div>
+      </div>
     </section>
   </main>
 

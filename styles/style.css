@@ -69,7 +69,7 @@ body {
 
 /* Headers and navigation */
 h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: montserrat, Open Sans;
   font-weight: 700;
 }
 
@@ -320,6 +320,43 @@ section {
   color: #172940;
 }
 
+
+/* Moving Light Effects */
+.project-card {
+  position: relative;
+  border-radius: 15px;
+  background: #fff; /* keep your white card */
+  z-index: 0;
+}
+
+/* Neon border with moving light */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 5px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #50c2f7, #fff, #1C4D8C);
+  background-size: 400% 400%;
+  animation: electricBorder 6s linear infinite;
+  
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes electricBorder {
+  0%   { background-position:   0%   0%; }   /* left → right on top edge */
+  25%  { background-position: 100%   0%; }   /* moves to right edge */
+  50%  { background-position: 100% 100%; }   /* moves down bottom edge */
+  75%  { background-position:   0% 100%; }   /* moves left edge */
+  100% { background-position:   0%   0%; }   /* back to top edge */
+}
+
+
 .modal {
   display: none;
   position: fixed;
@@ -488,26 +525,6 @@ section {
   margin-bottom: 1rem;
 }
 
-/* .skill-tags {
-  display: flex;
-  justify-content: center;   
-  flex-wrap: wrap;           
-  gap: 0.75rem; 
-  margin: 1.5rem auto 2.5rem;  
-  max-width: 70%;
-  margin-bottom: 0.0rem;      
-} */
-
-/* .skill-tags span {
-  background: #1C4D8C;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  text-align: center;
-} */
-
 .skill-logos {
   display: flex;
   flex-wrap: wrap;
@@ -527,6 +544,40 @@ section {
   transform: scale(1.2);
   /* filter: brightness(120%); */
 }
+
+/* Skill-Logos moving effect */
+
+.skill-logos {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.logos-track {
+  display: flex;
+  width: max-content;
+  animation: scrollRight 20s linear infinite;
+}
+
+.skill-logos img {
+  width: 60px;
+  height: 60px;
+  margin: 0 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.skill-logos img:hover {
+  transform: scale(1.2);
+}
+
+/* continuous left-to-right loop */
+@keyframes scrollRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
 
 /* Testimonials Section */
 
@@ -558,7 +609,7 @@ section {
 }
 
 .testimonials-grid blockquote {
-  background: #BDD4F2;
+  background: #fff;
   color: #172940;
   padding: 1.25rem 1.1rem;
   border-radius: 8px;
@@ -587,12 +638,19 @@ section {
   flex: 0 0 calc(25% - 1rem); /* default = 4 per row */
   box-sizing: border-box;
   padding: 1.25rem;
-  background: #BDD4F2;
+  background: #fff;
   color: #172940;
   border-radius: 8px;
   text-align: center;
   font-style: italic;
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.06);
+}
+
+.testimonial-date {
+  display: block;
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 0.4rem;
 }
 
 /* Contact Section - Centered */
