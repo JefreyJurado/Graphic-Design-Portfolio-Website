@@ -7,6 +7,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .success-message {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #c3e6cb;
+      margin-top: 20px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in;
+    }
+    
+    .success-message i {
+      color: #28a745;
+      margin-right: 10px;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
@@ -31,10 +54,10 @@
     
     <p>Feel free to reach out via email or connect with me on professional platforms.</p>
 
-    <!-- Contact Form -->
+    <!-- Contact Form - FORMSPREE REMOVED -->
     <div class="contact-form-wrapper">
       <h3>Send me a message</h3>
-      <form class="contact-form">
+      <form class="contact-form" id="contactForm">
         <div class="form-row">
           <input type="text" name="name" placeholder="Your Name" required autocomplete="name">
           <input type="email" name="email" placeholder="Your Email" required autocomplete="email">
@@ -45,6 +68,12 @@
           <i class="fas fa-paper-plane"></i> Send Message
         </button>
       </form>
+      
+      <!-- Success Message -->
+      <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <strong>Message sent successfully!</strong> Thank you for reaching out. I'll get back to you within 24 hours.
+      </div>
     </div>
 
     <!-- Updated Contact Links - FIXED ORDER -->
@@ -93,6 +122,38 @@
   <footer>
   <p>© 2025 Jefrey Jurado. All rights reserved.</p>
 </footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent form from actually submitting
+    
+    // Check if all required fields are filled
+    const name = this.querySelector('input[name="name"]').value;
+    const email = this.querySelector('input[name="email"]').value;
+    const message = this.querySelector('textarea[name="message"]').value;
+    
+    if (name && email && message) {
+      // Only show success if all fields are filled
+      document.getElementById('successMessage').style.display = 'block';
+      
+      // Clear the form
+      this.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(function() {
+        document.getElementById('successMessage').style.display = 'none';
+      }, 5000);
+    } else {
+      // Show the same error toast that app.js uses
+      showToast('❌ Please fill in all fields');
+    }
+    
+    // STOP the app.js form handler from running
+    e.stopImmediatePropagation();
+    return false;
+  });
+</script>
+
 <script src="app.js"></script>
 </body>
 </html>
