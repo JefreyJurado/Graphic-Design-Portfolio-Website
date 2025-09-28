@@ -240,72 +240,161 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// CONTACT PAGE INTERACTIVITY
-
+// CONTACT PAGE ENHANCEMENTS
 document.addEventListener("DOMContentLoaded", () => {
-  // Copy email
-  const emailLink = document.querySelector(".contact-links a[href^='mailto:']");
-  
-  if (emailLink) {
-    emailLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      const email = emailLink.getAttribute("href").replace("mailto:", "");
+  // Only run on contact page
+  if (window.location.pathname.includes('05_contact.html') || 
+      document.querySelector('.contact-form')) {
+    
+    // Enhanced Email Copy Functionality
+    const emailLink = document.getElementById('emailLink');
+    if (emailLink) {
+      emailLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        const email = 'apollojudge0@gmail.com';
+        
+        navigator.clipboard.writeText(email).then(() => {
+          // Visual feedback
+          const originalText = this.querySelector('span').textContent;
+          this.classList.add('copied');
+          this.querySelector('span').textContent = 'Copied!';
+          
+          // Show toast notification
+          showToast(`✅ Email copied: ${email}`);
+          
+          // Reset after 2 seconds
+          setTimeout(() => {
+            this.classList.remove('copied');
+            this.querySelector('span').textContent = originalText;
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy email: ', err);
+          showToast('❌ Failed to copy email');
+        });
+      });
+    }
 
-      navigator.clipboard.writeText(email).then(() => {
-        showToast(`📋 Email copied: ${email}`);
+    // Contact Form Handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message')
+        };
+        
+        // Basic validation
+        if (!data.name || !data.email || !data.message) {
+          showToast('❌ Please fill in all fields');
+          return;
+        }
+        
+        if (!isValidEmail(data.email)) {
+          showToast('❌ Please enter a valid email address');
+          return;
+        }
+        
+        // Simulate form submission (replace with actual form handling)
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call - replace this with actual form submission
+        setTimeout(() => {
+          showToast('✅ Message sent! I\'ll get back to you soon.');
+          contactForm.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 2000);
+      });
+    }
+    
+    // Enhanced contact card animations
+    const contactCards = document.querySelectorAll('.contact-card');
+    contactCards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      
+      setTimeout(() => {
+        card.style.transition = 'all 0.6s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, index * 100);
+    });
+
+    // Form input animations
+    const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+    formInputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.style.transform = 'scale(1.02)';
+      });
+      
+      input.addEventListener('blur', function() {
+        this.parentElement.style.transform = 'scale(1)';
       });
     });
   }
-
-  function showToast(message) {
-    const toast = document.createElement("div");
-    toast.textContent = message;
-    toast.style.position = "fixed";
-    toast.style.bottom = "20px";
-    toast.style.right = "20px";
-    toast.style.background = "linear-gradient(135deg, #1C4D8C, #2680f7ff)";
-    toast.style.color = "#fff";
-    toast.style.padding = "10px 15px";
-    toast.style.borderRadius = "8px";
-    toast.style.fontWeight = "500";
-    toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
-    toast.style.zIndex = "2000";
-    toast.style.opacity = "0";
-    toast.style.transition = "opacity 0.3s, transform 0.3s";
-    toast.style.transform = "translateY(20px)";
-
-    document.body.appendChild(toast);
-    setTimeout(() => {
-      toast.style.opacity = "1";
-      toast.style.transform = "translateY(0)";
-    }, 100);
-
-    setTimeout(() => {
-      toast.style.opacity = "0";
-      toast.style.transform = "translateY(20px)";
-      setTimeout(() => toast.remove(), 300);
-    }, 2000);
-  }
-
-  // Animate contact links
-  const contactLinks = document.querySelectorAll(".contact-links a");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  contactLinks.forEach(link => {
-    link.classList.add("hidden");
-    observer.observe(link);
-  });
 });
 
+// Email validation helper (ADD THIS NEW FUNCTION)
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Enhanced Toast Notification (REPLACES EXISTING showToast FUNCTION)
+function showToast(message) {
+  // Remove existing toast if any
+  const existingToast = document.querySelector('.custom-toast');
+  if (existingToast) {
+    existingToast.remove();
+  }
+  
+  const toast = document.createElement('div');
+  toast.className = 'custom-toast';
+  toast.innerHTML = message;
+  
+  // Toast styles
+  Object.assign(toast.style, {
+    position: 'fixed',
+    bottom: '30px',
+    right: '30px',
+    background: 'linear-gradient(135deg, #1C4D8C, #2680f7)',
+    color: 'white',
+    padding: '15px 20px',
+    borderRadius: '10px',
+    fontWeight: '500',
+    boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
+    zIndex: '10000',
+    opacity: '0',
+    transform: 'translateX(100px)',
+    transition: 'all 0.4s ease',
+    maxWidth: '300px',
+    wordWrap: 'break-word',
+    border: '1px solid rgba(255,255,255,0.2)'
+  });
+  
+  document.body.appendChild(toast);
+  
+  // Animate in
+  setTimeout(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(0)';
+  }, 100);
+  
+  // Auto remove after 4 seconds
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(100px)';
+    setTimeout(() => toast.remove(), 400);
+  }, 4000);
+}
 
 
 // Scroll reveal animations

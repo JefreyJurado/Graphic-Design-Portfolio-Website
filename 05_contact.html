@@ -18,64 +18,87 @@
     <a href="05_contact.html" class="active">Contact</a>
   </nav>
 
-  <!-- Contact Section -->
+   <!-- Contact Section -->
 <main>
   <section class="contact">
-    <h2>Let’s Work Together</h2>
-    <p>Feel free to reach out via any of the platforms below or send me a message directly.</p>
+    <h2>Let's Work Together</h2>
+    
+    <!-- Availability Status -->
+    <div class="availability">
+      <span class="status-dot available"></span>
+      <span>Currently available for new projects</span>
+    </div>
+    
+    <p>Feel free to reach out via email or connect with me on professional platforms.</p>
 
-    <div class="contact-links">
-      <a href="mailto:example@example.com" target="_blank">
-        <i class="fas fa-envelope"></i>Email
-      </a>
-
-      <a href="https://www.linkedin.com/login" target="_blank">
-        <i class="fab fa-linkedin"></i>LinkedIn
-      </a>
-
-      <a href="https://github.com/login" target="_blank">
-        <i class="fab fa-github"></i>GitHub
-      </a>
-
-      <a href="https://www.behance.net/login" target="_blank">
-        <i class="fab fa-behance"></i>Behance
-      </a>
-
-      <a href="https://www.instagram.com/accounts/login" target="_blank">
-        <i class="fab fa-instagram"></i>Instagram
-      </a>
-
-      <a href="https://twitter.com/i/flow/login" target="_blank">
-        <i class="fab fa-twitter"></i>Twitter
-      </a>
-
-      <a href="https://www.facebook.com/login" target="_blank">
-        <i class="fab fa-facebook"></i>Facebook
-      </a>
-
-      <a href="https://www.viber.com/en/" target="_blank">
-        <i class="fab fa-viber"></i>Viber
-      </a>
-      
-      <a href="https://web.telegram.org/" target="_blank">
-        <i class="fab fa-telegram"></i>Telegram
-      </a>
+    <!-- Contact Form -->
+    <div class="contact-form-wrapper">
+      <h3>Send me a message</h3>
+      <form class="contact-form" action="https://formspree.io/f/mgvnodjw" method="POST">
+        <!-- Add these for better email delivery -->
+        <input type="hidden" name="_replyto" value="apollojudge0@gmail.com">
+        <input type="hidden" name="_subject" value="New Message from Portfolio Contact Form">
+        
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required autocomplete="name">
+          <input type="email" name="email" placeholder="Your Email" required autocomplete="email">
+        </div>
+        <textarea name="message" placeholder="Tell me about your project..." rows="4" required autocomplete="off"></textarea>
+        
+        <!-- Optional: Redirect after submission -->
+        <input type="hidden" name="_next" value="https://jefreyjurado.com/05_contact.html">
+        
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
     </div>
 
+    <!-- Updated Contact Links - FIXED ORDER -->
+<div class="contact-links">
+
+  <a href="https://www.linkedin.com/in/jefrey-jurado-630576166/" class="contact-card" target="_blank">
+    <i class="fab fa-linkedin"></i>
+    <span>LinkedIn</span>
+    <small>Professional profile</small>
+  </a>
+
+  <a href="https://github.com/JefreyJurado" class="contact-card" target="_blank">
+    <i class="fab fa-github"></i>
+    <span>GitHub</span>
+    <small>Code & projects</small>
+  </a>
+
+  <a href="mailto:apollojudge0@gmail.com" class="contact-card" id="emailLink">
+    <i class="fas fa-envelope"></i>
+    <span>Email</span>
+    <small>apollojudge0@gmail.com</small>
+  </a>
+
+  <a href="https://www.behance.net/jefreyjuradocreative" class="contact-card" target="_blank">
+    <i class="fab fa-behance"></i>
+    <span>Behance</span>
+    <small>Design portfolio</small>
+  </a>
+
+  <a href="https://www.facebook.com/login" class="contact-card" target="_blank">
+    <i class="fab fa-facebook"></i>
+    <span>Facebook</span>
+    <small>Social Media</small>
+  </a>
+</div>
+
+    <!-- Response Time Info -->
+    <div class="response-info">
+      <i class="fas fa-clock"></i>
+      <span>I typically respond within 24 hours</span>
+    </div>
   </section>
 </main>
 
   <!-- Footer -->
   <footer>
   <p>© 2025 Jefrey Jurado. All rights reserved.</p>
-  <!-- <div class="footer-links">
-    <a href="mailto:your-email@example.com" target="_blank"><i class="fas fa-envelope"></i></a>
-    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://behance.net/yourprofile" target="_blank"><i class="fab fa-behance"></i></a>
-    <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
-  </div> -->
 </footer>
 <script src="app.js"></script>
 </body>
