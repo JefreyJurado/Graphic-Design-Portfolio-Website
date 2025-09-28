@@ -122,38 +122,6 @@
   <footer>
   <p>© 2025 Jefrey Jurado. All rights reserved.</p>
 </footer>
-
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent form from actually submitting
-    
-    // Check if all required fields are filled
-    const name = this.querySelector('input[name="name"]').value;
-    const email = this.querySelector('input[name="email"]').value;
-    const message = this.querySelector('textarea[name="message"]').value;
-    
-    if (name && email && message) {
-      // Only show success if all fields are filled
-      document.getElementById('successMessage').style.display = 'block';
-      
-      // Clear the form
-      this.reset();
-      
-      // Hide success message after 5 seconds
-      setTimeout(function() {
-        document.getElementById('successMessage').style.display = 'none';
-      }, 5000);
-    } else {
-      // Show the same error toast that app.js uses
-      showToast('❌ Please fill in all fields');
-    }
-    
-    // STOP the app.js form handler from running
-    e.stopImmediatePropagation();
-    return false;
-  });
-</script>
-
 <script src="app.js"></script>
 </body>
 </html>

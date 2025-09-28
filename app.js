@@ -240,6 +240,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+
+
 // CONTACT PAGE ENHANCEMENTS
 document.addEventListener("DOMContentLoaded", () => {
   // Only run on contact page
@@ -254,15 +257,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = 'apollojudge0@gmail.com';
         
         navigator.clipboard.writeText(email).then(() => {
-          // Visual feedback
           const originalText = this.querySelector('span').textContent;
           this.classList.add('copied');
           this.querySelector('span').textContent = 'Copied!';
           
-          // Show toast notification
           showToast(`✅ Email copied: ${email}`);
           
-          // Reset after 2 seconds
           setTimeout(() => {
             this.classList.remove('copied');
             this.querySelector('span').textContent = originalText;
@@ -274,44 +274,36 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Contact Form Handling
+    // UPDATED Contact Form Handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const formData = new FormData(this);
-        const data = {
-          name: formData.get('name'),
-          email: formData.get('email'),
-          message: formData.get('message')
-        };
+        const name = this.querySelector('input[name="name"]').value;
+        const email = this.querySelector('input[name="email"]').value;
+        const message = this.querySelector('textarea[name="message"]').value;
         
-        // Basic validation
-        if (!data.name || !data.email || !data.message) {
+        if (name && email && message) {
+          // Show success message
+          const successMessage = document.getElementById('successMessage');
+          if (successMessage) {
+            successMessage.style.display = 'block';
+          }
+          
+          // Clear the form
+          this.reset();
+          
+          // Hide success message after 5 seconds
+          setTimeout(function() {
+            if (successMessage) {
+              successMessage.style.display = 'none';
+            }
+          }, 5000);
+        } else {
+          // Show error toast
           showToast('❌ Please fill in all fields');
-          return;
         }
-        
-        if (!isValidEmail(data.email)) {
-          showToast('❌ Please enter a valid email address');
-          return;
-        }
-        
-        // Simulate form submission (replace with actual form handling)
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        // Simulate API call - replace this with actual form submission
-        setTimeout(() => {
-          showToast('✅ Message sent! I\'ll get back to you soon.');
-          contactForm.reset();
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }, 2000);
       });
     }
     
@@ -341,6 +333,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+
+
 
 // Email validation helper (ADD THIS NEW FUNCTION)
 function isValidEmail(email) {
