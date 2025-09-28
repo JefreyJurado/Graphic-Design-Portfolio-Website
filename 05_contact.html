@@ -122,6 +122,71 @@
   <footer>
   <p>© 2025 Jefrey Jurado. All rights reserved.</p>
 </footer>
+
+<!-- Add EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+  // Initialize EmailJS with your credentials
+  emailjs.init("qSWCCgKjgh0QdaY2Y");
+  
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = this.querySelector('input[name="name"]').value;
+    const email = this.querySelector('input[name="email"]').value;
+    const message = this.querySelector('textarea[name="message"]').value;
+    
+    if (name && email && message) {
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
+      
+      // Send notification to YOU
+      emailjs.send('service_2d9eosj', 'template_za0j5ug', {
+        name: name,
+        email: email,
+        message: message
+      })
+      .then(() => {
+        // Send confirmation to CLIENT
+        return emailjs.send('service_2d9eosj', 'template_baneyzr', {
+          name: name,
+          email: email,
+          message: message
+        });
+      })
+      .then(() => {
+        // Success - show message
+        document.getElementById('successMessage').style.display = 'block';
+        this.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(function() {
+          document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+      })
+      .catch((error) => {
+        showToast('❌ Failed to send message. Please try again.');
+        console.error('EmailJS error:', error);
+      })
+      .finally(() => {
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      });
+      
+    } else {
+      showToast('❌ Please fill in all fields');
+    }
+    
+    // Stop other form handlers
+    e.stopImmediatePropagation();
+    return false;
+  });
+</script>
+
 <script src="app.js"></script>
 </body>
 </html>
