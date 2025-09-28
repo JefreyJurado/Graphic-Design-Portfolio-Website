@@ -30,6 +30,7 @@ nav a {
   color: #02f7ff; 
   text-decoration: none;
   font-weight: bold;
+  font-size: 0.9rem;   /* ⬅ adjust this (e.g., 1.2rem or 14px) */
   border-radius: 5px;
   background: none;        /* no box by default */
   transition: all 0.3s ease;
@@ -115,7 +116,7 @@ section {
 }
 
 .hero-text p {
-  font-size: 1  rem;
+  font-size: 1rem;
   margin-top: 1rem;
   color: #fff;
 }
@@ -355,7 +356,6 @@ section {
   75%  { background-position:   0% 100%; }   /* moves left edge */
   100% { background-position:   0%   0%; }   /* back to top edge */
 }
-
 
 .modal {
   display: none;

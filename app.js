@@ -10,8 +10,6 @@ function canUseWebP() {
 }
 const supportsWebP = canUseWebP(); // ✅ reuse everywhere
 
-
-
 // Active Navigation Highlight
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 // Smooth Scroll for Anchor Links
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -38,8 +35,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
-
-
 
 // Typewriter Effect in Hero
 
@@ -61,8 +56,6 @@ if (heroTitle) {
   heroTitle.innerHTML = "";
   typeWriter(heroTitle, text, 60);
 }
-
-
 
 // Testimonials Carousel
 
@@ -146,7 +139,6 @@ if (container) {
 
   updateCarousel();
 }
-
 
 
 // ABOUT SECTION INTERACTIVITY
@@ -248,8 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
 // CONTACT PAGE INTERACTIVITY
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -319,7 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Scroll reveal animations
-
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
 
@@ -339,7 +328,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // WebP for CSS Backgrounds & Thumbnails
-
 if (supportsWebP) {
   document.body.style.backgroundImage = 'url("images/mainbg.webp")';
   if (document.body.classList.contains("home")) {
